@@ -1,10 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { NotFound } from "../../Error";
 
 export default function Detail({ writers }) {
   const { writerId } = useParams();
   const writer = writers.find(writer => writer.id === writerId);
-  if (!writer) return <h3>Not found</h3>;
+  if (!writer) return <NotFound></NotFound>;
 
   const { id, name, born, deceased, image, description } = writer;
   return (
