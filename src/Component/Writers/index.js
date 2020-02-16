@@ -3,7 +3,7 @@ import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 import Detail from "./Detail";
 
 export default function Writers({ writers }) {
-  let { path, url } = useRouteMatch();
+  let { url } = useRouteMatch();
   //let match = useRouteMatch("/writers/:writerId");
   return (
     <>

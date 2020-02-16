@@ -10,7 +10,7 @@ function App() {
     (async () => {
       try {
         const data = await (
-          await fetch("http://localhost:3004/writers")
+          await fetch("http://localhost:3004/writers?_embed=texts")
         ).json();
         setWriters([...writers, ...data]);
       } catch (err) {
