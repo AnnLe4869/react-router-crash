@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Route, useRouteMatch } from "react-router-dom";
+import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 import Detail from "./Detail";
 
 export default function Writers({ writers }) {
@@ -14,9 +14,14 @@ export default function Writers({ writers }) {
           </li>
         ))}
       </ul>
-      <Route path={`${path}/:writerId`}>
-        <Detail writers={writers}></Detail>
-      </Route>
+      <Switch>
+        <Route path={`${url}/:writerId`}>
+          <Detail writers={writers}></Detail>
+        </Route>
+        <Route path={url}>
+          <h3>Please select a writer from above</h3>
+        </Route>
+      </Switch>
     </>
   );
 }

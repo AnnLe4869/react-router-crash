@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 
 import Writers from "./Writers";
 import "../App.css";
@@ -33,14 +33,17 @@ function App() {
         </ul>
       </>
       <hr />
-      <>
+      <Switch>
         <Route exact path="/">
-          <div>Hello World</div>
+          <div>Home</div>
         </Route>
         <Route path="/writers">
           <Writers writers={writers}></Writers>
         </Route>
-      </>
+        <Route>
+          <h3>Please use the correct link</h3>
+        </Route>
+      </Switch>
     </Router>
   );
 }

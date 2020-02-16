@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 export default function Detail({ writers }) {
   const { writerId } = useParams();
   const writer = writers.find(writer => writer.id === writerId);
-  if (!writer) return null;
+  if (!writer) return <h3>Not found</h3>;
 
   const { id, name, born, deceased, image, description } = writer;
   return (
@@ -13,8 +13,9 @@ export default function Detail({ writers }) {
       <h3>
         {born} - {deceased}
       </h3>
+      <img src={image} alt={name} style={{ maxHeight: 300 }}></img>
+
       <p>{description}</p>
-      <img src={image} alt={name} style={{ maxWidth: 300 }}></img>
     </>
   );
 }
