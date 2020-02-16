@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
-import "./App.css";
+
+import Writers from "./Writers";
+import "../App.css";
 
 function App() {
   const [writers, setWriters] = useState([]);
@@ -30,16 +32,13 @@ function App() {
           </li>
         </ul>
       </>
+      <hr />
       <>
         <Route exact path="/">
           <div>Hello World</div>
         </Route>
         <Route path="/writers">
-          <ul>
-            {writers.map(writer => (
-              <li key={writer.id}>{writer.name}</li>
-            ))}
-          </ul>
+          <Writers writers={writers}></Writers>
         </Route>
       </>
     </Router>
