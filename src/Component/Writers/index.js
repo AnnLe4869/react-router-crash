@@ -7,20 +7,18 @@ export default function Writers({ writers }) {
   //let match = useRouteMatch("/writers/:writerId");
   return (
     <>
-      <ul>
+      {/* <ul>
         {writers.map(({ id, name }) => (
           <li key={id}>
             <Link to={`${url}/${id}`}>{name}</Link>
           </li>
         ))}
-      </ul>
+      </ul> */}
       <Switch>
         <Route path={`${url}/:writerId`}>
           <Detail writers={writers}></Detail>
         </Route>
-        <Route path={url}>
-          <h3>Please select a writer from above</h3>
-        </Route>
+        <Route path={url}>{null}</Route>
       </Switch>
     </>
   );

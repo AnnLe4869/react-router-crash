@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 
 import Writers from "./Writers";
+import Layout from "./Layout";
 import "../App.css";
 
 function App() {
@@ -22,28 +23,19 @@ function App() {
 
   return (
     <Router>
-      <>
-        <ul>
-          <li key="home">
-            <Link to="/">Home</Link>
-          </li>
-          <li key="writers">
-            <Link to="/writers">Writers</Link>
-          </li>
-        </ul>
-      </>
-      <hr />
-      <Switch>
-        <Route exact path="/">
-          <div>Home</div>
-        </Route>
-        <Route path="/writers">
-          <Writers writers={writers}></Writers>
-        </Route>
-        <Route>
-          <h3>Please use the correct link</h3>
-        </Route>
-      </Switch>
+      <Layout writers={writers}>
+        <Switch>
+          <Route exact path="/">
+            <div>Home</div>
+          </Route>
+          <Route path="/writers">
+            <Writers writers={writers}></Writers>
+          </Route>
+          <Route>
+            <h3>Please use the correct link</h3>
+          </Route>
+        </Switch>
+      </Layout>
     </Router>
   );
 }
